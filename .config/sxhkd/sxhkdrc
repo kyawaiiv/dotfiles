@@ -1,0 +1,77 @@
+#===============================================================================
+# bspwm hotkeys						    *bspwm*
+
+ctrl + alt + q
+    bspc quit
+
+alt + shift + c
+    bspc window -c
+
+alt + Tab
+    bspc desktop -f last
+
+alt + {_, shift + }{1-9, 0}
+    bspc {desktop -f,window -d} ^{1-9,10}
+
+~button1
+    bspc pointer -g focus
+
+alt + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+alt + !button{1-3}
+    bspc pointer -t %i %i
+
+alt + @button{1-3}
+    bspc pointer -u
+
+alt + ctrl + {h,j,k,l}
+    bspc window -s {left,down,up,right}
+
+super + {s,f}
+    bspc window -t {floating,fullscreen}
+
+super + {t,m}
+    bspc desktop -l {tiled,monocle}
+
+super + {h,j,k,l}
+    bspc window --presel {left,down,up,right}
+
+alt + grave
+    xdotool search --onlyvisible --classname scratchpad windowunmap \
+    || xdotool search --classname scratchpad windowmap \
+    || urxvt -name scratchpad -geometry 70x20 &
+
+#===============================================================================
+# wm independent hotkeys				    *misc*
+
+alt + shift + Return
+    urxvtc
+
+alt + p
+    dmenu_run -fn "Helvetica Neue-11:Regular" -nf "#484848" -nb "#fafafa" -sf "#fafafa"  -sb "#136ae2"
+
+XF86MonBrightnessUp
+    xbacklight -inc 5
+
+XF86MonBrightnessDown
+    xbacklight -dec 5
+
+XF86KbdBrightnessUp
+    kbdlight up
+
+XF86KbdBrightnessDown
+    kbdlight down
+
+XF86Audio{Raise,Lower}Volume
+    amixer -q set Master 5%{+,-}
+
+XF86AudioMute
+    amixer -q set Master toggle
+
+XF86PowerOff
+    $HOME/scripts/poweroff.sh
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
