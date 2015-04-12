@@ -28,8 +28,8 @@ compinit
 autoload -U colors && colors	# Colors!
 
 # Prompt
-PROMPT="%{$fg_bold[green]%}┌─%{$reset_color%}[%{$fg_bold[yellow]%}%n%{$reset_color%}@%{$fg_bold[cyan]%}%M %{$fg_bold[blue]%}%B%~%b]
-%{$fg_bold[green]%}└─╼ %{$reset_color%}"
+PROMPT="%{$fg[green]%}┌─%{$reset_color%}[%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%M %{$fg[green]%}%B%~%b]
+%{$fg[green]%}└─╼ %{$reset_color%}"
 
 setopt no_case_glob             # Case insensitive globbing
 setopt interactivecomments      # Ignore lines prefixed with '#'
